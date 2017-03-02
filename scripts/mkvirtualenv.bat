@@ -63,6 +63,9 @@ REM This should be a change adopted by virtualenv.
     echo.^) else (
     echo.    set "_OLD_VIRTUAL_PYTHONPATH=%%PYTHONPATH%%"
     echo.^)
+    echo.if exist "%WORKON_HOME%\%ENVNAME%\Scripts\postactivate.bat" ^(
+    echo.    call "%WORKON_HOME%\%ENVNAME%\Scripts\postactivate.bat"
+    echo.^)
 )
 
 REM In deactivate.bat, reset PYTHONPATH to its former value
@@ -70,6 +73,9 @@ REM In deactivate.bat, reset PYTHONPATH to its former value
     echo.
     echo.if defined _OLD_VIRTUAL_PYTHONPATH (
     echo.    set "PYTHONPATH=%%_OLD_VIRTUAL_PYTHONPATH%%"
+    echo.^)
+    echo.if exist "%WORKON_HOME%\%ENVNAME%\Scripts\postdeactivate.bat" ^(
+    echo.    call "%WORKON_HOME%\%ENVNAME%\Scripts\postdeactivate.bat"
     echo.^)
 )
 
